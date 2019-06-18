@@ -5,6 +5,13 @@
 
     <header>
       <button
+       @click="changeKakkoFlg()"
+       class="ryakubtn"
+       :class="isKakkoFlg"
+      >
+        <img src="../assets/3ten.svg">
+      </button>
+      <button
        @click="showTag()"
        class="tagbtn"
       >
@@ -64,6 +71,9 @@ export default {
       if (this.tagFlg) {
         this.mokujiFlg = false
       }
+    },
+    changeKakkoFlg: function () {
+      this.$store.commit('changeKakkoFlg')
     }
   },
   computed: {
@@ -76,6 +86,13 @@ export default {
         arr = this.law
       }
       return arr
+    },
+    isKakkoFlg: function () {
+      if (this.$store.state.kakkoFlg) {
+        return 'onKakkoFlg'
+      } else {
+        return ''
+      }
     }
   }
 }
@@ -148,7 +165,7 @@ a {
   height: 40px;
   position: absolute; 
   top: 5px;
-  right: 10vw;
+  right: calc(5vw + 50px);
   text-align: center;
   border: 0;
   background: none;
@@ -158,6 +175,32 @@ a {
 .tagbtn:hover {
   opacity: 1;
 
+}
+
+.ryakubtn {
+  cursor: pointer;
+  z-index: 2;
+  font-size: 30px;
+  color: #eee;
+  width: 40px;
+  height: 40px;
+  position: absolute; 
+  top: 5px;
+  right: calc(5vw + 100px);
+  text-align: center;
+  border: 0;
+  background: none;
+  opacity: 0.7;
+  border-radius: 5px;
+}
+
+.ryakubtn:hover {
+  opacity: 1;
+
+}
+
+.onKakkoFlg {
+  background-color: #fff;
 }
 
 button>img {

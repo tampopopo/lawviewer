@@ -1,8 +1,8 @@
 <template>
   <div>
     <dl class="v-datalist">
-      <dt>{{ dt }}</dt>
-      <dd>{{ dd }}</dd>
+      <dt>{{ getText(dt, kakkoFlg) }}</dt>
+      <dd>{{ getText(dd, kakkoFlg) }}</dd>
     </dl>
   </div>
 </template>
@@ -14,6 +14,34 @@ export default {
   props: {
     dt: String,
     dd: String
+  },
+  computed: {
+    kakkoFlg: function () {
+      return this.$store.state.kakkoFlg
+    }
+  },
+  methods: {
+    getText: function (text, flg) {
+      if (flg) {
+        let result = ''
+        let cnt = 0
+        for (let i = 0; i < text.length; i++) {
+          let c = text.charAt(i)
+          if (c == '（') {
+            cnt += 1
+          }
+          if (cnt == 0) {
+            result += c
+          }
+          if (c == '）') {
+            cnt -= 1
+          }       
+        }
+        return result
+      } else {
+        return text
+      }
+    }
   }
 }
 </script>

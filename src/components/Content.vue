@@ -3,14 +3,12 @@
     <ContentDatalist v-if="isDatalist" :dt="content.dt" :dd="content.dd" />
     <div v-if="!isDatalist && isArray">
       <p v-for="(text, key) in content" :key="key">
-        {{ getText(text) }}
+        {{ getText(text, kakkoFlg) }}
       </p>
-      <button @click="changeFlg">括弧</button>
     </div>
     <p v-if="!isDatalist && !isArray">
-      {{ getText(content) }}
+      {{ getText(content, kakkoFlg) }}
     </p>
-    <button @click="changeFlg">括弧</button>
   </div>
 </template>
 
@@ -28,7 +26,6 @@ export default {
   },
   data () {
     return {
-      flg: false
     }
   },
   computed: {
@@ -46,10 +43,13 @@ export default {
         return false
       }
     },
+    kakkoFlg: function () {
+      return this.$store.state.kakkoFlg
+    }
   },
   methods: {
-    getText: function (text) {
-      if (this.flg) {
+    getText: function (text, flg) {
+      if (flg) {
         let result = ''
         let cnt = 0
         for (let i = 0; i < text.length; i++) {
@@ -68,9 +68,6 @@ export default {
       } else {
         return text
       }
-    },
-    changeFlg () {
-      this.flg = !this.flg
     }
   }
 
