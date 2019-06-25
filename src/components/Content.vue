@@ -13,7 +13,7 @@
 </template>
 
 <script>
-
+  
 import ContentDatalist from './ContentDatalist.vue'
 
 export default {
