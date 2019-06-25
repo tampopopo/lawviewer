@@ -115,7 +115,7 @@ header {
 h1 {
   position: absolute;
   top: calc((50px - 36px) / 2);
-  left: calc((100vw - 150px) / 2);
+  left: 30px;
   font-size: 24px;
   text-align: center;
   width: 150px;
