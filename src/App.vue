@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <CorporateTax/>
+    <LawViewer/>
   </div>
 </template>
 
 <script>
-import CorporateTax from './components/CorporateTax.vue'
+import LawViewer from './components/LawViewer.vue'
 
 export default {
   name: 'app',
   components: {
-    CorporateTax
+    LawViewer
   }
 }
 </script>

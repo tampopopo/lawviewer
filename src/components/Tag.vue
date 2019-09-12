@@ -14,7 +14,7 @@
 			</div>
 			<p class="ol-title">関連する条文</p>
 			<ol>
-				<li v-for="(item, key) in lawList['law']" @click="selectLaw(item)" :key="key">
+				<li v-for="(item, key) in tagJson[tagTitle]" @click="selectLaw(item)" :key="key">
 					{{ item }}
 				</li>
 			</ol>
@@ -31,40 +31,37 @@ export default {
   },
   data () {
     return {
-      tagJson: '',
       tagTitle: '',
       visibleLawList: false,
       searchTagTitle: ''
     }
   },
-  created:  function () {
-    this.tagJson = require('../houjinzei/tag.json')
-	},
 	methods: {
 		selectLaw: function (title) {
 			this.$emit('pGetLaw', title)
 		},
-		selectTag: function (title) {
-			this.tagTitle = title
+		selectTag: function (tag) {
+			this.tagTitle = tag
 			this.visibleLawList = true
 		},
 		closeLawList: function () {
+			this.tagTitle = ''
 			this.visibleLawList = false
 		}
 	},
 	computed: {
-		lawList: function () {
-			let matchList = this.tagJson['tagLawList'].filter((item) => {
-				if (item.tagTitle == this.tagTitle) return true
-			})
-			return matchList[0]
+		tagJson: function () {
+			return require('../' + this.lawTitle + '/tag.json')
 		},
 		tagList: function () {
-			let matchList = this.tagJson['tagList'].filter((item) => {
+			let matchList = Object.keys(this.tagJson).filter((item) => {
 				if ((item).indexOf(this.searchTagTitle) >= 0) return true
 			})
 			return matchList
-		}
+		},
+    lawTitle: function () {
+      return this.$store.state.lawTitle
+    }		
 	}
 }
 
@@ -92,6 +89,7 @@ div {
 	width: 100vw;
 	height: calc(100vh - 50px);
 	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;	
 }
 
 input {
@@ -148,6 +146,7 @@ ol {
 	list-style: none;
 	margin: 0;
 	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;	
 }
 
 li {
@@ -161,5 +160,9 @@ li {
 
 li:hover {
 	background: #efefff;
+}
+
+li:last-child {
+	margin-bottom: 100px;
 }
 </style>

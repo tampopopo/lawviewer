@@ -1,7 +1,8 @@
 <template>
   <ol class="v-kakko">
-    <li v-for="(item, key) in kakko" :key="key" :value="item.number">
-      <Content :content="item.content"/>
+    <li v-for="(item, key) in kakko" :key="key">
+      <h6>{{ Object.keys(item)[0] }}</h6>
+      <Content :content="Object.values(item)[0].text"/>
     </li>
   </ol>
 </template>
@@ -35,8 +36,5 @@ ol.v-kakko li {
   counter-increment: cnt;
 }
 
-ol.v-kakko li:before {
-  content: '（ 'attr(value)' ）';
-}
 
 </style>

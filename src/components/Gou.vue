@@ -1,8 +1,9 @@
 <template>
   <ol>
-    <li v-for="(item, key) in gou" :key="key" :value="item.number" class="v-gou">
-      <Content :content="item.content"/>
-      <Iroha :iroha="item.iroha"/>
+    <li v-for="(item, key) in gou" :key="key" class="v-gou">
+    <h4>{{ Object.keys(item)[0] }}</h4>
+      <Content :content="Object.values(item)[0].text"/>
+      <Iroha :iroha="Object.values(item)[0].iroha"/>
     </li>
   </ol>
 </template>
@@ -32,10 +33,6 @@ export default {
   margin: 5px;
   padding: 5px;
   border-left: 1px solid #666;
-}
-
-.v-gou::before {
-  content: '第 'attr(value)' 号';
 }
 
 </style>

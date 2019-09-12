@@ -1,8 +1,9 @@
 <template>
   <ol>
-    <li v-for="(item, key) in iroha" :key="key" :value="item.number" class="v-iroha">
-      <Content :content="item.content"/>
-      <Kakko :kakko="item.kakko"/>
+    <li v-for="(item, key) in iroha" :key="key" class="v-iroha">
+      <h5>{{ Object.keys(item)[0] }}</h5>
+      <Content :content="Object.values(item)[0].text"/>
+      <Kakko :kakko="Object.values(item)[0].kakko"/>
     </li>
   </ol>
 </template>
@@ -27,8 +28,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .v-iroha {
-  list-style: katakana-iroha;
-  list-style-position: inside;
+  list-style: none;
   width: calc(100% - 21px);  
   margin: 5px;
   padding: 5px;
