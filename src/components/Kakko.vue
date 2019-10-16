@@ -1,19 +1,22 @@
 <template>
-  <ol class="v-kakko">
-    <li v-for="(item, key) in kakko" :key="key">
+  <ol>
+    <li v-for="(item, key) in kakko" :key="key" class="v-kakko">
       <h6>{{ Object.keys(item)[0] }}</h6>
       <Content :content="Object.values(item)[0].text"/>
+      <Roma :roma="Object.values(item)[0].roma"/>
     </li>
   </ol>
 </template>
 
 <script>
 
+import Roma from './Roma.vue'
 import Content from './Content.vue'
 
 export default {
   name: 'Kakko',
   components: {
+    Roma,
     Content
   },
   props: {
@@ -24,16 +27,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-ol.v-kakko li{
-  list-style-type: none;
+.v-kakko{
+  list-style: none;
   margin: 5px;
   padding: 5px;
-  border-left: 1px solid #aaa;
   width: calc(100% - 21px);  
-}
-
-ol.v-kakko li {
-  counter-increment: cnt;
+  border-left: 1px solid #aaa;
 }
 
 

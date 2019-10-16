@@ -10,7 +10,10 @@ const store = new Vuex.Store({
     lawTitleList: {
       'houjinzei' : '法人税法',
       'houjinzei-shikourei' : '法人税法施行令',
-      'houjinzei-shikoukisoku' : '法人税法施行規則'
+      'houjinzei-shikoukisoku' : '法人税法施行規則',
+      'sochiho' : '租税特別措置法',
+      'sochiho-shikourei' : '租税特別措置法施行令',
+      'sochiho-shikoukisoku' : '租税特別措置法施行規則'      
     }
   },
   mutations: {

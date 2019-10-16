@@ -6,11 +6,11 @@
 	.st0{fill:#4B4B4B;}
 </style>
 <g>
-	<rect y="16" class="st0" width="96" height="96" style="fill: rgb(75, 75, 75);"></rect>
-	<rect x="160" y="16" class="st0" width="352" height="96" style="fill: rgb(75, 75, 75);"></rect>
-	<rect y="208" class="st0" width="96" height="96" style="fill: rgb(75, 75, 75);"></rect>
-	<rect x="160" y="208" class="st0" width="352" height="96" style="fill: rgb(75, 75, 75);"></rect>
-	<rect y="400" class="st0" width="96" height="96" style="fill: rgb(75, 75, 75);"></rect>
-	<rect x="160" y="400" class="st0" width="352" height="96" style="fill: rgb(75, 75, 75);"></rect>
+	<rect y="16" class="st0" width="96" height="96" style="fill: rgb(200, 200, 200);"></rect>
+	<rect x="160" y="16" class="st0" width="352" height="96" style="fill: rgb(200, 200, 200);"></rect>
+	<rect y="208" class="st0" width="96" height="96" style="fill: rgb(200, 200, 200);"></rect>
+	<rect x="160" y="208" class="st0" width="352" height="96" style="fill: rgb(200, 200, 200);"></rect>
+	<rect y="400" class="st0" width="96" height="96" style="fill: rgb(200, 200, 200);"></rect>
+	<rect x="160" y="400" class="st0" width="352" height="96" style="fill: rgb(200, 200, 200);"></rect>
 </g>
 </svg>

@@ -29,9 +29,9 @@ export default {
 <style scoped>
 .v-iroha {
   list-style: none;
-  width: calc(100% - 21px);  
   margin: 5px;
   padding: 5px;
+  width: calc(100% - 21px);  
   border-left: 1px solid #888;
 }
 </style>
